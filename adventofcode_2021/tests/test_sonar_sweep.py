@@ -1,5 +1,5 @@
 import pytest
-from .. import sonar_sweep
+from ..day1 import sonar_sweep
 
 def test_count_increase():
     assert sonar_sweep.count_increases([1,2,3,4,5]) == 4

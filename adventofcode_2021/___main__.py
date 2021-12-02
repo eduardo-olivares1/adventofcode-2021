@@ -1,6 +1,6 @@
 import os
 import time
-import sonar_sweep
+from day1 import sonar_sweep
 
 # Import data
 basedir = os.path.abspath(os.path.dirname(__file__))
