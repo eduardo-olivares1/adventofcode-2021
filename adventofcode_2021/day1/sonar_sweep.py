@@ -22,18 +22,17 @@ def count_increases(arr):
         if i > 0:
             # Check if element is larger than last
             if arr[i] > arr[i - 1]:
-                print(f"{arr[i]} (increased)")
                 # Increase the count
                 increase_count += 1
             # Check if element is smmaller than last
             elif arr[i] < arr[i - 1]:
-                print(f"{arr[i]} (decreased)")
+                pass
             # Check if element is equal to the last
             elif arr[i] == arr[i - 1]:
-                print(f"{arr[i]} (no change)")
+                pass
         # Don't count if the index is the first element
         elif i == 0:
-            print(f"{arr[i]} (N/A - no previous measurement)")
+            pass
 
     return increase_count
 
