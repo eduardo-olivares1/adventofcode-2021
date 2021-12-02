@@ -27,3 +27,22 @@ class Submarine(object):
 
     def get_sum(self):
         return self.depth * self.horizontal
+
+class SubmarineComplex(Submarine):
+    def __init__(self) -> None:
+        super().__init__()
+        self.aim = 0
+
+    def forward(self, units):
+        units = int(units)
+        self.horizontal += units
+        self.depth += (self.aim * units)
+        
+
+    def down(self, units):
+        units = int(units)
+        self.aim += units
+
+    def up(self, units):
+        units = int(units)
+        self.aim -= units

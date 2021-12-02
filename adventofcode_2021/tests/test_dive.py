@@ -1,34 +1,21 @@
 import pytest
 from ..day2 import dive
 
-
-
-def test_forward():
+def test_case1():
     my_sub = dive.Submarine()
     my_sub.forward(5)
-    my_sub.forward(10)
-    assert my_sub.horizontal == 15
+    my_sub.down(5)
+    my_sub.forward(8)
+    my_sub.up(3)
+    my_sub.down(8)
+    my_sub.forward(2)
 
-def test_down():
-    my_sub2 = dive.Submarine()
-    my_sub2.down(10)
-    my_sub2.down(10)
-    assert my_sub2.depth == 20
-
-def test_up():
-    my_sub3 = dive.Submarine()
-    my_sub3.up(5)
-    my_sub3.up(11)
-    my_sub3.depth == -16
-
-def test_get_sum():
-    my_sub4 = dive.Submarine()
-    my_sub4.down(10)
-    my_sub4.forward(33)
-    assert my_sub4.get_sum() == 330
-
-def test_command():
-    my_sub5 = dive.Submarine()
-    my_sub5.command("forward","15")
-    my_sub5.command("down","10")
-    assert my_sub5.get_sum() == 150
+def test_case2():
+    my_sub5 = dive.SubmarineComplex()
+    my_sub5.forward(5)
+    my_sub5.down(5)
+    my_sub5.forward(8)
+    my_sub5.up(3)
+    my_sub5.down(8)
+    my_sub5.forward(2)
+    assert my_sub5.get_sum() == 900

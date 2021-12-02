@@ -25,19 +25,29 @@ def main():
         f"Three-measurement Sliding Window - number of measurements are larger than the previous measurement: {sliding_window_increases} "
     )
 
-    # Day 2 Solution
+    # Day 2: Part 1 solution
     day2_file = os.path.join(basedir, "data", "day2", "input.txt")
     day2_input_list = file_help.file_to_list(day2_file)
     day2_input_list = [x.split() for x in day2_input_list]
 
     my_sub = dive.Submarine()
-    
+
     for command in day2_input_list:
         my_sub.command(command[0], command[1])
 
     final_position = my_sub.get_sum()
 
     print(f"Final horizontal position by your final depth {final_position}")
+
+    # Day 2: Part 2 solution
+    my_sub2 = dive.SubmarineComplex()
+
+    for command in day2_input_list:
+        my_sub2.command(command[0], command[1])
+
+    final_position_complex = my_sub2.get_sum()
+
+    print(f"Final horizontal position by your final depth {final_position_complex}")
 
 
 if __name__ == "__main__":
