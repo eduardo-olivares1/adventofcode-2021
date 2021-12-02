@@ -16,4 +16,6 @@ print(
 # Part 2 solution
 sliding_window_arr = sonar_sweep.sliding_window_sum(input_list)
 sliding_window_increases = sonar_sweep.count_increases(sliding_window_arr)
-print(f"Three-measurement Sliding Window - number of measurements are larger than the previous measurement: {sliding_window_increases} ")
+print(
+    f"Three-measurement Sliding Window - number of measurements are larger than the previous measurement: {sliding_window_increases} "
+)
