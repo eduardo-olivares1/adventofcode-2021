@@ -26,3 +26,9 @@ def test_get_sum():
     my_sub4.down(10)
     my_sub4.forward(33)
     assert my_sub4.get_sum() == 330
+
+def test_command():
+    my_sub5 = dive.Submarine()
+    my_sub5.command("forward","15")
+    my_sub5.command("down","10")
+    assert my_sub5.get_sum() == 150
