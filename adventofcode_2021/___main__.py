@@ -5,7 +5,7 @@ from day1 import sonar_sweep
 def main():
     # Import data
     basedir = os.path.abspath(os.path.dirname(__file__))
-    filepath = os.path.join(basedir, "data", "input", "input.txt")
+    filepath = os.path.join(basedir, "data", "day1", "input.txt")
     input_list = sonar_sweep.file_to_list(filepath)
 
     # Day 1: Part 1 solution
