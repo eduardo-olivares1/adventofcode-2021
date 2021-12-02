@@ -59,3 +59,31 @@ def file_to_list(filepath):
             arr.append(int(line.rstrip()))
 
     return arr
+
+
+def sliding_window_sum(arr):
+    """Takes an array and sums the starting element and next two elements for each element.
+
+    Parameters
+    ----------
+    arr : list
+        Unordered list of integers.
+
+    Returns
+    -------
+    list
+        List of summed elements.
+    """
+    # Empty list to append values to
+    sliding_window_arr = []
+
+    for i in range(0, len(arr)):
+        try:
+            # Sum the next two elements for each element in the list
+            sum_two_ahead = arr[i] + arr[i + 1] + arr[i + 2]
+            sliding_window_arr.append(sum_two_ahead)
+        # If the index is out of range that means that that is the max that can be summed.
+        except IndexError:
+            break
+
+    return sliding_window_arr
