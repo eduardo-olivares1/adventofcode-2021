@@ -2,6 +2,7 @@ import os
 import time
 from day1 import sonar_sweep
 from day2 import dive
+from day3 import binary_diagnostic
 from advent_utils import file_help
 
 
@@ -48,6 +49,21 @@ def day2(input):
     print(f"Final horizontal position by your final depth {final_position_complex}")
 
 
+def day3(input):
+    # Day 3: Part 1 solution
+    # Transpose matrix
+    input_list = file_help.file_to_list(input)
+    input_list = input_list = [list(x) for x in input_list]
+    input_transposed = binary_diagnostic.tranpose(input_list)
+    # Find common bit
+    gamma_rate_binary = binary_diagnostic.get_gamma_binary_string(input_transposed)
+    # Invert
+    epsilon_rate_binary = binary_diagnostic.get_epsilon_binary_string(gamma_rate_binary)
+    # Get power consuption
+    power_consumption = binary_diagnostic.get_power_consumption(int(gamma_rate_binary,2), int(epsilon_rate_binary,2))
+    print(power_consumption)
+
+
 def main():
     # Import data
     basedir = os.path.abspath(os.path.dirname(__file__))
@@ -57,8 +73,12 @@ def main():
     day1(day1_file)
 
     # Day 2 Solution
-    day2_file = os.path.join(basedir, "data", "day2", "input.txt")
+    day2_file = file_help.get_data_filepath(basedir, "day2", "input.txt")
     day2(day2_file)
+
+    # Day 3 Solution
+    day3_file = file_help.get_data_filepath(basedir, "day3", "input.txt")
+    day3(day3_file)
 
 
 if __name__ == "__main__":
