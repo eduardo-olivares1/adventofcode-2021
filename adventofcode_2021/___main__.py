@@ -60,7 +60,9 @@ def day3(input):
     # Invert
     epsilon_rate_binary = binary_diagnostic.get_epsilon_binary_string(gamma_rate_binary)
     # Get power consuption
-    power_consumption = binary_diagnostic.get_power_consumption(int(gamma_rate_binary,2), int(epsilon_rate_binary,2))
+    power_consumption = binary_diagnostic.get_power_consumption(
+        int(gamma_rate_binary, 2), int(epsilon_rate_binary, 2)
+    )
     print(power_consumption)
 
 

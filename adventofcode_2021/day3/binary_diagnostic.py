@@ -37,15 +37,18 @@ def invert_binary(binary_string):
             inverted_binary += "0"
     return inverted_binary
 
+
 def get_gamma_binary_string(matrix):
     gamma_rate_binary = ""
     for arr in matrix:
         gamma_rate_binary += get_common_bit(arr)
     return gamma_rate_binary
 
+
 def get_epsilon_binary_string(gamma_rate_binary):
     epsilon_rate_binary = invert_binary(gamma_rate_binary)
     return epsilon_rate_binary
+
 
 def get_power_consumption(gamma_rate, epsilon_rate):
     return gamma_rate * epsilon_rate
