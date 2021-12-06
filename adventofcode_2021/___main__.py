@@ -63,12 +63,13 @@ def day3(input):
     power_consumption = binary_diagnostic.get_power_consumption(
         int(gamma_rate_binary, 2), int(epsilon_rate_binary, 2)
     )
-    print(power_consumption)
+    print(f"Submarine Power Consumption: {power_consumption}")
 
     # Day 3: Part 2 solution
-    generator_rating = binary_diagnostic.get_generator_rating(input_list)
-    scrubbter_rating = binary_diagnostic.get_scrubber_rating(input_list)
-    print(binary_diagnostic.get_life_support_rating(scrubbter_rating, generator_rating))
+    generator_rating = binary_diagnostic.get_rating(input_list, "generator")
+    scrubber_rating = binary_diagnostic.get_rating(input_list, "scrubber")
+    life_support_rating = binary_diagnostic.get_life_support_rating(scrubber_rating, generator_rating)
+    print(f"Submarine Life Support Rating: {life_support_rating}")
 
 
 def main():

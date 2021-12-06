@@ -30,7 +30,7 @@ def test_invert_binary():
     assert binary_diagnostic.invert_binary("10101") == "01010"
 
 def test_get_generator_rating():
-    assert binary_diagnostic.get_generator_rating(test_matrix) == 23
+    assert binary_diagnostic.get_rating(test_matrix, "generator") == 23
 
 def test_get_scrubber_rating():
-    assert binary_diagnostic.get_scrubber_rating(test_matrix) == 10
+    assert binary_diagnostic.get_rating(test_matrix, "scrubber") == 10
