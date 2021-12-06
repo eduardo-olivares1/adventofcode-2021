@@ -13,7 +13,7 @@ def tranpose(matrix):
     return transposed_matrix
 
 
-def get_common_bit(arr):
+def get_common_bit(arr, most_common=True, on_even=None):
     unique_elements = set(arr)
     count_cache = {}
     for element in unique_elements:
@@ -23,7 +23,19 @@ def get_common_bit(arr):
         if element in count_cache:
             count_cache[element] += 1
 
-    common_bit = max(count_cache, key=count_cache.get)
+    if most_common == True:
+        if len(count_cache) == 1 or count_cache["0"] == count_cache["1"]:
+            return on_even
+        else:
+            common_bit = max(count_cache, key=count_cache.get)
+        
+    elif most_common == False:
+        print(count_cache)
+        if len(count_cache) == 1 or count_cache["0"] == count_cache["1"]:
+            return on_even
+        else:
+            common_bit = min(count_cache, key=count_cache.get)
+        
 
     return common_bit
 
@@ -52,3 +64,36 @@ def get_epsilon_binary_string(gamma_rate_binary):
 
 def get_power_consumption(gamma_rate, epsilon_rate):
     return gamma_rate * epsilon_rate
+
+# WARNING: HORRIFIC CODE BELOW
+def get_generator_rating(matrix):
+    for i in range(0, len(matrix[0])):
+        tranposed_matrix = tranpose(matrix)
+        common_bit = get_common_bit(tranposed_matrix[i], on_even="1")
+        matrix = [el for el in matrix if el[i] == common_bit]
+        if len(matrix) == 1:
+            break
+
+    binary_string = ""
+    for bit in matrix[0]:
+        binary_string += bit
+
+    return int(binary_string, 2)
+
+def get_scrubber_rating(matrix):
+    for i in range(0, len(matrix[0])):
+        tranposed_matrix = tranpose(matrix)
+        common_bit = get_common_bit(tranposed_matrix[i], on_even="0", most_common=False)
+        matrix = [el for el in matrix if el[i] == common_bit]
+        if len(matrix) == 1:
+            break
+
+    binary_string = ""
+    for bit in matrix[0]:
+        binary_string += bit
+
+    return int(binary_string, 2)
+
+
+def get_life_support_rating(scrubber_rating, generator_rating):
+    return scrubber_rating * generator_rating

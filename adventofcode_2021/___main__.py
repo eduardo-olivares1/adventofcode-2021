@@ -53,7 +53,7 @@ def day3(input):
     # Day 3: Part 1 solution
     # Transpose matrix
     input_list = file_help.file_to_list(input)
-    input_list = input_list = [list(x) for x in input_list]
+    input_list = [list(x) for x in input_list]
     input_transposed = binary_diagnostic.tranpose(input_list)
     # Find common bit
     gamma_rate_binary = binary_diagnostic.get_gamma_binary_string(input_transposed)
@@ -64,6 +64,11 @@ def day3(input):
         int(gamma_rate_binary, 2), int(epsilon_rate_binary, 2)
     )
     print(power_consumption)
+
+    # Day 3: Part 2 solution
+    generator_rating = binary_diagnostic.get_generator_rating(input_list)
+    scrubbter_rating = binary_diagnostic.get_scrubber_rating(input_list)
+    print(binary_diagnostic.get_life_support_rating(scrubbter_rating, generator_rating))
 
 
 def main():
