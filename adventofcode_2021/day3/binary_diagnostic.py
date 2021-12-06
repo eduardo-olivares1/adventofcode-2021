@@ -28,13 +28,12 @@ def get_common_bit(arr, most_common=True, on_even=None):
             return on_even
         else:
             common_bit = max(count_cache, key=count_cache.get)
-        
+
     elif most_common == False:
         if len(count_cache) == 1 or count_cache["0"] == count_cache["1"]:
             return on_even
         else:
             common_bit = min(count_cache, key=count_cache.get)
-        
 
     return common_bit
 
@@ -64,6 +63,7 @@ def get_epsilon_binary_string(gamma_rate_binary):
 def get_power_consumption(gamma_rate, epsilon_rate):
     return gamma_rate * epsilon_rate
 
+
 # WARNING: HORRIFIC CODE BELOW
 def get_rating(matrix, rating):
     for i in range(0, len(matrix[0])):
@@ -71,7 +71,9 @@ def get_rating(matrix, rating):
         if rating == "generator":
             common_bit = get_common_bit(tranposed_matrix[i], on_even="1")
         elif rating == "scrubber":
-            common_bit = get_common_bit(tranposed_matrix[i], on_even="0", most_common=False)
+            common_bit = get_common_bit(
+                tranposed_matrix[i], on_even="0", most_common=False
+            )
         matrix = [el for el in matrix if el[i] == common_bit]
         if len(matrix) == 1:
             break

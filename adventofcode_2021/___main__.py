@@ -68,7 +68,9 @@ def day3(input):
     # Day 3: Part 2 solution
     generator_rating = binary_diagnostic.get_rating(input_list, "generator")
     scrubber_rating = binary_diagnostic.get_rating(input_list, "scrubber")
-    life_support_rating = binary_diagnostic.get_life_support_rating(scrubber_rating, generator_rating)
+    life_support_rating = binary_diagnostic.get_life_support_rating(
+        scrubber_rating, generator_rating
+    )
     print(f"Submarine Life Support Rating: {life_support_rating}")
 
 
